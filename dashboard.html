@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>CP Dashboard - Strategic Intelligence</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a class="active" href="dashboard.html">Dashboard</a>
+  <a href="consumer.html">Consumer</a>
+</nav>
+
+<div class="layout">
+  <!-- Sidebar (Streamlit-like) -->
+  <aside class="sidebar">
+    <h3 class="sidebar-title">CP Dashboard Navigation</h3>
+
+    <a class="side-link" href="#overview" data-page="overview">Overview</a>
+    <a class="side-link" href="#competitor" data-page="competitor">Competitor Intelligence</a>
+    <a class="side-link" href="#market" data-page="market">Market Analysis</a>
+    <a class="side-link" href="#customer" data-page="customer">Customer Insights</a>
+    <a class="side-link" href="#opportunity" data-page="opportunity">Opportunity Engine</a>
+
+    <a class="btn secondary" style="width:100%;text-align:center;margin-top:12px;" href="index.html">
+      Return to Home
+    </a>
+
+    <div class="side-note">Static HTML replica of Streamlit cockpit.</div>
+  </aside>
+
+  <main class="container container-narrow">
+
+    <!-- ============ OVERVIEW ============ -->
+    <section id="overview" data-page-section="overview">
+      <h1>CP Group - Strategic Market Analysis Dashboard</h1>
+      <p class="subtitle">Executive Summary</p>
+
+      <div class="metrics">
+        <div class="metric metric-card">
+          Market Size (2024)
+          <strong id="m_market_size">—</strong>
+          <div class="metric-sub" id="m_cagr">—</div>
+        </div>
+        <div class="metric metric-card">
+          Target Segment
+          <strong id="m_segment">—</strong>
+          <div class="metric-sub">Pragmatic Middle-Class</div>
+        </div>
+        <div class="metric metric-card">
+          Tier 1 Penetration
+          <strong id="m_tier1">—</strong>
+          <div class="metric-sub">Instant Retail</div>
+        </div>
+        <div class="metric metric-card">
+          Key Competitors
+          <strong id="m_comp">—</strong>
+          <div class="metric-sub">Dingdong & Freshippo</div>
+        </div>
+      </div>
+
+      <hr class="sep"/>
+
+      <div class="grid-2">
+        <div class="insight-box">
+          <h4>Market Opportunity</h4>
+          <ul>
+            <li>¥580B market growing at 22% CAGR</li>
+            <li>45% pragmatic middle-class segment underserved</li>
+            <li>Consumer shift from bulk to frequent small purchases</li>
+            <li>Strong demand for quality-price balance</li>
+          </ul>
+        </div>
+        <div class="insight-box">
+          <h4>Competitive Gaps</h4>
+          <ul>
+            <li>Partial traceability (25-30% coverage)</li>
+            <li>High fulfillment costs (¥80-87M)</li>
+            <li>Limited organic product offerings</li>
+            <li>Weak price-quality optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Quick Competitor Comparison</h2>
+      <table>
+        <tr><th></th><th>Dingdong</th><th>Freshippo</th></tr>
+        <tr><td>Business Model</td><td id="t_dd_model">—</td><td id="t_hema_model">—</td></tr>
+        <tr><td>Cities</td><td id="t_dd_cities">—</td><td id="t_hema_cities">—</td></tr>
+        <tr><td>SKU Count</td><td id="t_dd_sku">—</td><td id="t_hema_sku">—</td></tr>
+        <tr><td>Traceability</td><td>Partial (25%)</td><td>Partial (30%)</td></tr>
+        <tr><td>Fulfillment Cost</td><td>¥87.2M</td><td>¥82M</td></tr>
+      </table>
+    </section>
+
+    <!-- ============ COMPETITOR INTELLIGENCE ============ -->
+    <section id="competitor" data-page-section="competitor" style="display:none;">
+      <h1>Interactive Competitor Intelligence Dashboard</h1>
+
+      <!-- st.selectbox equivalent -->
+      <div class="card" style="margin-top:10px;">
+        <label for="competitorSelect" style="font-weight:800;">Select Competitor for Detailed Analysis</label>
+        <select id="competitorSelect" class="select" style="margin-top:8px;">
+          <option value="Dingdong">Dingdong</option>
+          <option value="Freshippo">Freshippo</option>
+          <option value="Side-by-Side Comparison">Side-by-Side Comparison</option>
+        </select>
+      </div>
+
+      <!-- Side-by-side -->
+      <div id="comp_side" style="margin-top:14px; display:none;">
+        <h2>Comprehensive Competitor Comparison</h2>
+
+        <div class="grid-2">
+          <div class="competitor-card">
+            <h3>Dingdong</h3>
+            <p><strong>Model:</strong> Front Warehouse (Pure Online)</p>
+            <p><strong>Geographic Focus:</strong> Yangtze River Delta</p>
+            <p><strong>Strategy:</strong> Quality over expansion</p>
+
+            <h4>Strengths</h4>
+            <div id="dd_strengths_lines"></div>
+
+            <h4>Weaknesses</h4>
+            <div id="dd_weaknesses_lines"></div>
+          </div>
+
+          <div class="competitor-card">
+            <h3>Freshippo</h3>
+            <p><strong>Model:</strong> Store-Warehouse Integration</p>
+            <p><strong>Geographic Focus:</strong> National (Tier 1+2)</p>
+            <p><strong>Strategy:</strong> Omnichannel premium</p>
+
+            <h4>Strengths</h4>
+            <div id="hema_strengths_lines"></div>
+
+            <h4>Weaknesses</h4>
+            <div id="hema_weaknesses_lines"></div>
+          </div>
+        </div>
+
+        <hr class="sep"/>
+        <h2>Dingdong Financial Performance (2021–2024)</h2>
+        <div id="ddFinancialChart" class="plot"></div>
+
+        <div class="insight-box" style="margin-top:12px;">
+          <strong>Key Insight:</strong>
+          Dingdong achieved profitability in Q1 2024 after strategic withdrawal from unprofitable tier 3/4 cities and focus on the Yangtze River Delta region.
+        </div>
+
+        <hr class="sep"/>
+        <h2>Product Portfolio Comparison</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Dingdong Product Mix</h3>
+            <div id="ddCategoryPie" class="plot" style="height:400px;"></div>
+          </div>
+          <div class="card">
+            <h3>Freshippo Product Mix</h3>
+            <div id="hemaCategoryPie" class="plot" style="height:400px;"></div>
+          </div>
+        </div>
+
+        <hr class="sep"/>
+        <h2>Technology & Innovation Capabilities</h2>
+        <div id="techCapabilityChart" class="plot" style="height:400px;"></div>
+      </div>
+
+      <!-- Dingdong detail -->
+      <div id="comp_dd" style="margin-top:14px; display:none;">
+        <h2 id="dd_title">—</h2>
+
+        <div class="metrics" style="grid-template-columns: repeat(3,1fr);">
+          <div class="metric metric-card">Business Model<strong id="dd_model">—</strong></div>
+          <div class="metric metric-card">SKU Count<strong id="dd_sku">—</strong></div>
+          <div class="metric metric-card">City Coverage<strong id="dd_city_n">—</strong></div>
+        </div>
+
+        <h3 style="margin-top:14px;">City Strategy</h3>
+        <div class="card" id="dd_city_strategy">—</div>
+
+        <h3 style="margin-top:14px;">Covered Cities</h3>
+        <div class="card" id="dd_cities">—</div>
+
+        <hr class="sep"/>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Strengths</h3>
+            <div id="dd_strengths_blocks"></div>
+
+            <h3 style="margin-top:14px;">Opportunities</h3>
+            <div id="dd_opps_blocks"></div>
+          </div>
+
+          <div class="card">
+            <h3>Weaknesses</h3>
+            <div id="dd_weak_blocks"></div>
+
+            <h3 style="margin-top:14px;">Threats</h3>
+            <div id="dd_threat_blocks"></div>
+          </div>
+        </div>
+
+        <hr class="sep"/>
+        <h3>AI Features</h3>
+        <div class="card" id="dd_ai_features"></div>
+
+        <h3 style="margin-top:14px;">Membership Benefits</h3>
+        <div class="card" id="dd_member_benefits"></div>
+      </div>
+
+      <!-- Freshippo detail -->
+      <div id="comp_hema" style="margin-top:14px; display:none;">
+        <h2 id="hema_title">—</h2>
+
+        <div class="metrics" style="grid-template-columns: repeat(3,1fr);">
+          <div class="metric metric-card">Business Model<strong id="hema_model">—</strong></div>
+          <div class="metric metric-card">SKU Count<strong id="hema_sku">—</strong></div>
+          <div class="metric metric-card">Formats<strong>2 (Fresh + NB)</strong></div>
+        </div>
+
+        <h3 style="margin-top:14px;">Business Formats</h3>
+        <div class="grid-2">
+          <div class="card" id="hema_fresh_box"></div>
+          <div class="card" id="hema_nb_box"></div>
+        </div>
+
+        <hr class="sep"/>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Strengths</h3>
+            <div id="hema_strengths_blocks"></div>
+
+            <h3 style="margin-top:14px;">Opportunities</h3>
+            <div id="hema_opps_blocks"></div>
+          </div>
+          <div class="card">
+            <h3>Weaknesses</h3>
+            <div id="hema_weak_blocks"></div>
+
+            <h3 style="margin-top:14px;">Threats</h3>
+            <div id="hema_threat_blocks"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARKET ANALYSIS ============ -->
+    <section id="market" data-page-section="market" style="display:none;">
+      <h1>Market Analysis & Industry Trends</h1>
+
+      <h2>Market Size & Growth Trajectory</h2>
+      <div id="marketSizeChart" class="plot"></div>
+
+      <hr class="sep"/>
+
+      <h2>Instant Retail Penetration by City Tier</h2>
+      <div class="grid-2" style="grid-template-columns: 2fr 1fr;">
+        <div>
+          <div id="penetrationChart" class="plot" style="height:400px;"></div>
+        </div>
+        <div class="metric-card">
+          <h4>Key Insights</h4>
+          <ul>
+            <li>Tier 1 cities: 45% penetration</li>
+            <li>Strong growth in New Tier 1</li>
+            <li>Tier 2/3 remain underpenetrated</li>
+            <li>Opportunity in lower tiers</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Consumer Segmentation</h2>
+      <div id="consumerSegmentPie" class="plot" style="height:400px;"></div>
+
+      <hr class="sep"/>
+      <h2>Industry Pain Points (Severity Analysis)</h2>
+      <div id="painPointsChart" class="plot" style="height:500px;"></div>
+
+      <details class="card" style="margin-top:12px;">
+        <summary style="font-weight:900; cursor:pointer;">View Pain Point Descriptions</summary>
+        <div id="painPointDescriptions" style="margin-top:10px;"></div>
+      </details>
+
+      <hr class="sep"/>
+      <h2>Technology Adoption Trends</h2>
+      <div class="metrics" style="grid-template-columns: repeat(3,1fr);">
+        <div class="metric metric-card" id="tech_ai_card"></div>
+        <div class="metric metric-card" id="tech_sc_card"></div>
+        <div class="metric metric-card" id="tech_sus_card"></div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Industry Health Index</h2>
+      <div id="industryHealthRadar" class="plot" style="height:500px;"></div>
+    </section>
+
+    <!-- ============ CUSTOMER INSIGHTS ============ -->
+    <section id="customer" data-page-section="customer" style="display:none;">
+      <h1>Customer Insights & Segmentation Analysis</h1>
+
+      <h2 id="seg_title">—</h2>
+
+      <div class="metrics">
+        <div class="metric metric-card">Market Share<strong id="seg_share">—</strong></div>
+        <div class="metric metric-card">Income Range<strong id="seg_income">—</strong></div>
+        <div class="metric metric-card">Age Range<strong id="seg_age">—</strong></div>
+        <div class="metric metric-card">Household<strong id="seg_household">—</strong></div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Jobs to Be Done (JTBD)</h2>
+      <div class="card" id="seg_jtbd">—</div>
+
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="card"><h3>Functional Jobs</h3><div id="seg_jobs_func"></div></div>
+        <div class="card"><h3>Emotional Jobs</h3><div id="seg_jobs_emo"></div></div>
+        <div class="card"><h3>Social Jobs</h3><div id="seg_jobs_soc"></div></div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Customer Priorities</h2>
+      <div id="priorityChart" class="plot" style="height:400px;"></div>
+
+      <hr class="sep"/>
+      <h2>Pain Points Analysis</h2>
+
+      <div class="tabbar">
+        <button class="tab active" data-tab="pain_func">Functional Pains</button>
+        <button class="tab" data-tab="pain_emo">Emotional Pains</button>
+        <button class="tab" data-tab="pain_soc">Social Pains</button>
+      </div>
+
+      <div class="tabpanel active" id="pain_func"><div id="pain_func_list"></div></div>
+      <div class="tabpanel" id="pain_emo"><div id="pain_emo_list"></div></div>
+      <div class="tabpanel" id="pain_soc"><div id="pain_soc_list"></div></div>
+
+      <hr class="sep"/>
+      <h2>Expected Gains</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Functional Gains</h3><div id="gain_func"></div></div>
+        <div class="card"><h3>Emotional Gains</h3><div id="gain_emo"></div></div>
+        <div class="card"><h3>Social Gains</h3><div id="gain_soc"></div></div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Shopping Behavior Profile</h2>
+      <div class="metrics" style="grid-template-columns: repeat(3,1fr);">
+        <div class="metric metric-card"><div>Purchase Frequency</div><strong id="bh_freq">—</strong><div class="metric-sub">Avg Basket: <span id="bh_basket">—</span></div></div>
+        <div class="metric metric-card"><div>Preferred Time</div><strong id="bh_time">—</strong><div class="metric-sub">Decision: <span id="bh_decision">—</span></div></div>
+        <div class="metric metric-card"><div>Device</div><strong id="bh_device">—</strong></div>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Product Preferences</h2>
+      <div id="productPrefPie" class="plot" style="height:400px;"></div>
+    </section>
+
+    <!-- ============ OPPORTUNITY ENGINE ============ -->
+    <section id="opportunity" data-page-section="opportunity" style="display:none;">
+      <h1>Opportunity Engine - Market Entry Strategy</h1>
+
+      <div class="card">
+        This module identifies market gaps and calculates opportunity scores based on:
+        <ul>
+          <li>Unmet customer needs</li>
+          <li>Competitor weaknesses</li>
+          <li>Market trends</li>
+          <li>CP Group capabilities</li>
+        </ul>
+      </div>
+
+      <hr class="sep"/>
+      <h2>Market Opportunity Scoring</h2>
+      <div id="opportunityExpanders"></div>
+
+      <hr class="sep"/>
+      <h2>Strategic Recommendations for CP Group</h2>
+      <div class="insight-box" id="top3RecoBox"></div>
+
+      <hr class="sep"/>
+      <h2>City Entry Priority Ranking</h2>
+      <div id="cityPriorityChart" class="plot" style="height:400px;"></div>
+
+      <hr class="sep"/>
+      <h2>Market Entry Strategy Simulator</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <label><strong>Business Model</strong></label>
+          <select id="sim_model" class="select">
+            <option>Front Warehouse</option>
+            <option>Store-Warehouse Integration</option>
+            <option>Hybrid Model</option>
+          </select>
+
+          <label style="display:block;margin-top:10px;"><strong>Initial City Coverage</strong>: <span id="sim_cities_val">3</span></label>
+          <input id="sim_cities" type="range" min="1" max="5" value="3"/>
+
+          <label style="display:block;margin-top:10px;"><strong>Traceability Coverage</strong>: <span id="sim_trace_val">80</span>%</label>
+          <input id="sim_trace" type="range" min="0" max="100" value="80"/>
+        </div>
+
+        <div class="card">
+          <label><strong>Organic Product Focus</strong>: <span id="sim_org_val">60</span>%</label>
+          <input id="sim_org" type="range" min="0" max="100" value="60"/>
+
+          <label style="display:block;margin-top:10px;"><strong>AI/Tech Investment Level</strong>: <span id="sim_tech_val">70</span>%</label>
+          <input id="sim_tech" type="range" min="0" max="100" value="70"/>
+
+          <label style="display:block;margin-top:10px;"><strong>Price Positioning</strong></label>
+          <select id="sim_price" class="select">
+            <option>Premium</option>
+            <option selected>Mid-range</option>
+            <option>Value</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="sim_calc" class="btn" style="margin-top:12px;">Calculate Entry Strategy ROI</button>
+
+      <div id="sim_results" style="display:none;margin-top:14px;">
+        <hr class="sep"/>
+        <h2>Simulation Results</h2>
+        <div class="metrics" style="grid-template-columns: repeat(3,1fr);">
+          <div class="metric metric-card">Success Probability<strong id="sim_success">—</strong></div>
+          <div class="metric metric-card">Est. Market Share (Y3)<strong id="sim_share">—</strong></div>
+          <div class="metric metric-card">Est. Revenue (Y3)<strong id="sim_rev">—</strong></div>
+        </div>
+        <div class="card" id="sim_reco" style="margin-top:12px;"></div>
+      </div>
+    </section>
+
+    <hr class="sep"/>
+    <footer class="muted" style="text-align:center;padding:6px 0 18px;">
+      CP Group Strategic Intelligence Dashboard | Data Updated: December 2024
+    </footer>
+
+  </main>
+</div>
+
+<script src="assets/dashboard.js"></script>
+
+<script>
+  // local tabs only (Customer pain tabs)
+  document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tabpanel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>

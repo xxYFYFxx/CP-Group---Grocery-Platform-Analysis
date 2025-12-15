@@ -1,0 +1,124 @@
+{
+  "dingdong": {
+    "name": "Dingdong",
+    "model": "Front Warehouse Model",
+    "description": "Operates pure online front warehouse model with focus on instant delivery within 1-3km radius",
+    "cities": ["Shanghai", "Hangzhou", "Suzhou", "Nanjing", "Ningbo", "Wuxi"],
+    "city_strategy": "Focused on Yangtze River Delta - withdrew from tier 3/4 cities in 2022",
+    "sku_count": 2800,
+    "fulfillment_cost_2024": 87169000,
+    "product_loss_2024": 20295000,
+    "strengths": [
+      "Integrated supply chain with direct sourcing",
+      "Reduced SKU strategy for better inventory management",
+      "AI diet assistant for customer engagement",
+      "Membership system designed for high-frequency transactions",
+      "Strategic focus on profitable tier 1 markets"
+    ],
+    "weaknesses": [
+      "High fulfillment costs (87.17M in 2024)",
+      "No offline presence - single revenue stream",
+      "Cannot reduce losses through in-store discounting",
+      "Limited geographic coverage after market withdrawal",
+      "High expansion costs for front warehouses"
+    ],
+    "opportunities": [
+      "Expand organic/low-pesticide product range",
+      "Enhance supply chain transparency",
+      "Develop more AI-powered features",
+      "Target quality-sensitive middle-class families"
+    ],
+    "threats": [
+      "Intense competition from omnichannel players",
+      "Rising customer acquisition costs",
+      "Price-sensitive market dynamics",
+      "Dependency on dense urban areas"
+    ],
+    "traceability": "Partial - Special categories (e.g., Baby Mom selection with certificates)",
+    "traceability_coverage": 0.25,
+    "membership": true,
+    "membership_benefits": [
+      "Free selected products",
+      "Green Card special rates",
+      "Green Card specials 228 CNY/month",
+      "Free delivery",
+      "Exclusive member days"
+    ],
+    "ai_features": [
+      "AI Diet Manager for recipe recommendations",
+      "Conversational Q&A for food safety",
+      "Daily nutrition knowledge tips",
+      "Seasonal recipe suggestions"
+    ],
+    "product_categories": {
+      "fresh_produce": 0.40,
+      "meat_seafood": 0.25,
+      "prepared_meals": 0.20,
+      "pantry_staples": 0.10,
+      "other": 0.05
+    }
+  },
+  "freshippo": {
+    "name": "Freshippo",
+    "model": "Store-Warehouse Integration",
+    "description": "Omnichannel model combining physical stores with online delivery, backed by Alibaba ecosystem",
+    "cities": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Hangzhou", "Chengdu", "Tier 2 cities"],
+    "city_strategy": "Dual-format: Freshippo Fresh in tier 1, Freshippo NB (Neighborhood) in tier 1 & 2 cities",
+    "sku_count": 3500,
+    "fulfillment_cost_2024": 82000000,
+    "strengths": [
+      "Omnichannel presence (online + offline)",
+      "Premium quality positioning",
+      "Strong Alibaba ecosystem integration",
+      "Dual format strategy (Fresh + NB)",
+      "In-store experience advantages"
+    ],
+    "weaknesses": [
+      "High prices limit market reach",
+      "Complex operations management",
+      "Partial traceability system",
+      "High operational costs",
+      "No dedicated organic section"
+    ],
+    "opportunities": [
+      "Expand NB format to more tier 2 cities",
+      "Develop organic product line",
+      "Enhance traceability infrastructure",
+      "Leverage Alibaba's AI capabilities"
+    ],
+    "threats": [
+      "Competition from pure online players",
+      "High real estate costs for stores",
+      "Market saturation in tier 1 cities",
+      "Consumer price sensitivity"
+    ],
+    "traceability": "Partial - Selected premium products",
+    "traceability_coverage": 0.30,
+    "membership": true,
+    "membership_benefits": [
+      "Exclusive pricing on selected items",
+      "Priority delivery slots",
+      "Member-only events",
+      "Points accumulation"
+    ],
+    "formats": {
+      "hema_fresh": {
+        "target": "Tier 1 cities",
+        "positioning": "Premium quality",
+        "store_size": "Large format"
+      },
+      "hema_nb": {
+        "target": "Tier 1 & 2 cities",
+        "positioning": "Value-oriented",
+        "store_size": "Neighborhood format"
+      }
+    },
+    "product_categories": {
+      "fresh_produce": 0.35,
+      "meat_seafood": 0.30,
+      "prepared_meals": 0.15,
+      "pantry_staples": 0.12,
+      "other": 0.08
+    }
+  }
+}

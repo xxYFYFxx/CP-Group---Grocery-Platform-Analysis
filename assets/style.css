@@ -1,0 +1,462 @@
+/* =========================
+   Global (Streamlit-like)
+========================= */
+
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --card: #f8fafc;
+  --accent: #16a34a; /* Streamlit green-ish */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =========================
+   Navigation (Sidebar-like top bar)
+========================= */
+
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.nav a.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+/* =========================
+   Headings (Streamlit style)
+========================= */
+
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* =========================
+   Cards
+========================= */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+/* Grid layouts (like st.columns) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* =========================
+   Metrics (st.metric look)
+========================= */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.metric {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.metric strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 4px;
+  color: var(--text);
+}
+
+/* =========================
+   Tables (Streamlit table style)
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================
+   Badges & prices (Consumer)
+========================= */
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.badge.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+/* =========================
+   Info boxes (st.info / st.success)
+========================= */
+
+.info-box {
+  background: #f0fdf4;
+  border-left: 4px solid var(--accent);
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Timeline (Traceability)
+========================= */
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* =========================
+   AI Chat Demo
+========================= */
+
+.qa {
+  margin-bottom: 20px;
+}
+
+.ai-box {
+  background: #f8fafc;
+  border-left: 4px solid var(--accent);
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+/* =========================
+   Code blocks
+========================= */
+
+pre.code {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   Buttons (Streamlit-like)
+========================= */
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn.secondary {
+  background: #334155;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+  margin-top: 60px;
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+/* layout with sidebar */
+.layout { display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
+.container-narrow { max-width: 1050px; }
+.sidebar {
+  position: sticky; top: 64px;
+  padding: 16px; margin: 16px 0 0 16px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: #fff;
+  height: fit-content;
+}
+.sidebar-title { margin: 6px 0 10px; font-size: 1rem; }
+.side-link {
+  display:block; padding: 8px 10px; border-radius: 8px;
+  text-decoration:none; color: var(--muted);
+}
+.side-link:hover { background:#f1f5f9; color: var(--text); }
+.side-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+.side-note { color: var(--muted); font-size: .85rem; }
+.muted { color: var(--muted); }
+
+.metric-sub { color: var(--muted); font-size: .85rem; margin-top: 6px; }
+
+.sep { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+/* tabs */
+.tabbar { display:flex; gap:10px; flex-wrap:wrap; margin: 12px 0 18px; }
+.tab {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--muted);
+}
+.tab.active { background: var(--card); color: var(--text); border-color: #d1d5db; }
+.tabpanel { display:none; }
+.tabpanel.active { display:block; }
+
+.plot { width: 100%; height: 420px; }
+
+/* radio look */
+.radio { display:flex; gap:10px; align-items:center; margin: 8px 0; color: var(--text); }
+.radio input { transform: translateY(1px); }
+/* =========================
+   Streamlit-style sidebar
+========================= */
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid var(--border);
+  padding: 20px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar .logo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.sidebar .section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 20px 0 8px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sidebar a.active {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+.sidebar a:hover {
+  background: #f8fafc;
+}
+
+/* Main content */
+.main-content {
+  padding: 32px 40px;
+}
+
+/* Make container behave like Streamlit main area */
+.main-content .container {
+  max-width: 1100px;
+  margin: 0;
+  padding: 0;
+}
+/* consumer controls */
+.side-card{ background:var(--panel-bg); border:1px solid var(--border); border-radius:12px; padding:12px; box-shadow:var(--shadow); }
+.radio-row{ display:flex; gap:10px; align-items:center; padding:6px 0; }
+.radio-row label{ font-weight:700; color:#0f172a; }
+
+.grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+@media (max-width: 900px){ .grid-3{ grid-template-columns:1fr; } }
+
+.btn-small{ padding:8px 12px; border-radius:10px; font-weight:800; }
+.select, .input{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  outline:none;
+}
+.input:focus, .select:focus{ border-color:#c7d2fe; }
+
+.cart-list{ margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+.cart-row{ display:flex; gap:10px; align-items:center; border:1px solid var(--border); border-radius:10px; padding:10px; background:#fff; }
+.xbtn{ border:none; background:#f1f5f9; border-radius:10px; padding:8px 10px; cursor:pointer; font-weight:900; }
+.cart-footer{ margin-top:10px; }
+
+.timeline{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
+@media (max-width: 900px){ .timeline{ grid-template-columns:1fr; } }
+.step{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:12px; box-shadow:var(--shadow); }
+
+.review{ padding:6px 0; }
+
+.chat{ max-height:360px; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+.chat-user, .chat-ai{ padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:#fff; }
+.chat-ai{ background:#f8fafc; }
+.chat-input{ display:flex; gap:10px; margin-top:12px; }
+
+.kv{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed var(--border); }
+.kv:last-child{ border-bottom:none; }
+/* ---- Dashboard custom classes (from Streamlit CSS) ---- */
+.metric-card{
+  background:#f8f9fa !important;
+  border-left:4px solid #2E7D32 !important;
+}
+.insight-box{
+  background:#e8f5e9;
+  padding:1rem;
+  border-radius:10px;
+  margin:0;
+  border:1px solid #d9f2df;
+}
+.competitor-card{
+  border:2px solid #ddd;
+  border-radius:12px;
+  padding:1.25rem;
+  background:#fff;
+}
+.swot-positive{ color:#2E7D32; font-weight:700; margin:6px 0; }
+.swot-negative{ color:#C62828; font-weight:700; margin:6px 0; }
+
+.box-success{ background:#eefaf0; border:1px solid #d9f2df; border-left:4px solid #2E7D32; border-radius:12px; padding:10px 12px; }
+.box-info{ background:#eff6ff; border:1px solid #dbeafe; border-left:4px solid #2563eb; border-radius:12px; padding:10px 12px; }
+.box-warning{ background:#fff7ed; border:1px solid #ffedd5; border-left:4px solid #f97316; border-radius:12px; padding:10px 12px; }
+.box-error{ background:#fef2f2; border:1px solid #fee2e2; border-left:4px solid #dc2626; border-radius:12px; padding:10px 12px; }
+
+.pill{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:#fff;
+  margin:6px 6px 0 0;
+  font-weight:800;
+}

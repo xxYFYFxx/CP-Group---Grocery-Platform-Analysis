@@ -1,0 +1,112 @@
+{
+  "pragmatic_middle_class": {
+    "segment_name": "Pragmatic Middle-Class Families",
+    "percentage": 0.45,
+    "income_range_cny": "150000-300000",
+    "cities": ["Tier 1", "New Tier 1"],
+    "age_range": "28-45",
+    "household_size": "3-4 members",
+    "jobs_to_be_done": "Obtain safe, healthy, quality-stable fresh food at reasonable prices with minimal shopping time and decision effort, enabling the family to maintain a dignified, healthy, and cost-effective lifestyle",
+    "functional_jobs": [
+      "Obtain safe, healthy, quality-stable fresh food at reasonable prices",
+      "Simplify decision-making process and reduce selection time",
+      "Meet continuous healthy dietary needs"
+    ],
+    "emotional_jobs": [
+      "Reduce anxiety about food safety and quality fluctuations",
+      "Gain easy, fast, and worry-free shopping experience",
+      "Enhance sense of control over diet and life"
+    ],
+    "social_jobs": [
+      "Fulfill family role by ensuring reliable food quality",
+      "Maintain dignity and quality of family life",
+      "Express rational consumption and quality pursuit values socially"
+    ],
+    "pain_points": {
+      "functional": [
+        {
+          "pain": "Quality instability and lack of transparency",
+          "severity": 0.90,
+          "frequency": "Very High"
+        },
+        {
+          "pain": "Poor delivery experience",
+          "severity": 0.75,
+          "frequency": "High"
+        },
+        {
+          "pain": "Difficulty balancing price and quality",
+          "severity": 0.85,
+          "frequency": "Very High"
+        }
+      ],
+      "emotional": [
+        {
+          "pain": "Long-term concerns about food safety",
+          "severity": 0.95,
+          "frequency": "Constant"
+        },
+        {
+          "pain": "Frustration from bad purchase experiences",
+          "severity": 0.70,
+          "frequency": "Occasional"
+        },
+        {
+          "pain": "Cognitive pressure from too many choices",
+          "severity": 0.65,
+          "frequency": "Frequent"
+        }
+      ],
+      "social": [
+        {
+          "pain": "Wrong purchases affect family image",
+          "severity": 0.60,
+          "frequency": "Occasional"
+        },
+        {
+          "pain": "Poor diet quality reduces sense of dignity",
+          "severity": 0.68,
+          "frequency": "Moderate"
+        }
+      ]
+    },
+    "gains": {
+      "functional": [
+        "Safe, traceable, quality-stable products",
+        "High value-for-money with quality advantage",
+        "Diverse, stable, efficient delivery experience"
+      ],
+      "emotional": [
+        "Peace of mind and confidence in consumption",
+        "Ease from simplified choices",
+        "Control and satisfaction in life"
+      ],
+      "social": [
+        "Demonstrate understanding of life and responsibility in family",
+        "Maintain healthy, rational middle-class lifestyle"
+      ]
+    },
+    "priorities": {
+      "price_stability": 0.90,
+      "quality_consistency": 0.95,
+      "delivery_reliability": 0.85,
+      "food_safety": 0.98,
+      "time_saving": 0.80,
+      "transparency": 0.88
+    },
+    "shopping_behavior": {
+      "frequency": "2-3 times per week",
+      "avg_basket_size_cny": "150-250",
+      "preferred_time": "Evening after work",
+      "device_preference": "Mobile app",
+      "decision_time": "10-15 minutes"
+    },
+    "product_preferences": {
+      "organic_low_pesticide": 0.65,
+      "prepared_meals": 0.55,
+      "traceable_products": 0.80,
+      "local_produce": 0.60,
+      "imported_premium": 0.40
+    }
+  }
+}

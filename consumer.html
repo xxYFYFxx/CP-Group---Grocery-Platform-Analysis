@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Fresh Grocery Shopping Platform</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a class="active" href="consumer.html">Consumer</a>
+</nav>
+
+<div class="layout">
+
+  <!-- Streamlit-like Sidebar -->
+  <aside class="sidebar">
+    <h3 class="sidebar-title">Fresh Grocery Shopping Platform</h3>
+
+    <a class="btn secondary" style="width:100%;text-align:center;margin-top:6px;" href="index.html">
+      Return to Home
+    </a>
+
+    <div style="margin-top:14px;"></div>
+    <h4 class="sidebar-title" style="font-size:1rem;margin-top:10px;">Your Shopping Profile</h4>
+
+    <div class="side-card">
+      <div class="radio-row">
+        <input type="radio" name="user_type" id="ut_auto" value="Auto-detect">
+        <label for="ut_auto">Auto-detect</label>
+      </div>
+      <div class="radio-row">
+        <input type="radio" name="user_type" id="ut_quality" value="Quality Priority">
+        <label for="ut_quality">Quality Priority</label>
+      </div>
+      <div class="radio-row">
+        <input type="radio" name="user_type" id="ut_value" value="Value Priority">
+        <label for="ut_value">Value Priority</label>
+      </div>
+
+      <div class="note" style="margin-top:10px;">
+        (Auto-detect uses browsing signals: quality/price/trace/discount/organic)
+      </div>
+    </div>
+
+    <h4 class="sidebar-title" style="font-size:1rem;margin-top:14px;">Shopping Cart</h4>
+    <div class="side-card">
+      <div id="cartEmpty" class="muted">Your cart is empty</div>
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-footer">
+        <div>Total: <strong id="cartTotal">¥0.0</strong></div>
+        <button id="checkoutBtn" class="btn" style="width:100%;margin-top:10px;" disabled>
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="container container-narrow">
+
+    <h1>Fresh Grocery Shopping Platform</h1>
+    <p class="subtitle">Safe · Transparent · Quality Assured</p>
+
+    <!-- Tabs (1:1 with st.tabs) -->
+    <div class="tabbar">
+      <button class="tab active" data-tab="tab1">Personalized Recommendations</button>
+      <button class="tab" data-tab="tab2">Traceability System</button>
+      <button class="tab" data-tab="tab3">Price-Quality Balance Tool</button>
+      <button class="tab" data-tab="tab4">AI Shopping Assistant</button>
+      <button class="tab" data-tab="tab5">🧪 Auto-Detect Demo</button>
+    </div>
+
+    <!-- TAB 1 -->
+    <section class="tabpanel active" id="tab1">
+      <h2>Recommended for You</h2>
+      <div id="recommendedGrid" class="grid-2"></div>
+
+      <hr class="sep"/>
+      <h2>Quick Replenishment</h2>
+      <p class="note">Based on your purchase history (demo)</p>
+      <div class="grid-3" id="quickReplenish"></div>
+    </section>
+
+    <!-- TAB 2 -->
+    <section class="tabpanel" id="tab2">
+      <h2>Product Traceability System</h2>
+
+      <div class="card">
+        <label for="traceSelect" style="font-weight:700;">Select a product to view full traceability</label>
+        <select id="traceSelect" class="select" style="margin-top:8px;"></select>
+      </div>
+
+      <div class="info-box" style="margin-top:14px;text-align:center;">
+        <div style="font-weight:900;font-size:1.2rem;">Traceability Completeness</div>
+        <div id="traceScore" style="font-weight:900;font-size:3rem;color:#2e7d32;margin-top:6px;">—</div>
+        <div class="muted">All supply chain stages documented and verified</div>
+      </div>
+
+      <h3 style="margin-top:16px;">Supply Chain Journey</h3>
+      <div id="traceTimeline" class="timeline"></div>
+
+      <hr class="sep"/>
+      <h3>Customer Reviews (demo)</h3>
+      <div id="reviewBox" class="card"></div>
+    </section>
+
+    <!-- TAB 3 -->
+    <section class="tabpanel" id="tab3">
+      <h2>Price-Quality Balance Analysis</h2>
+      <div class="info-box">
+        This tool shows the relationship between price and quality. Find products that best match your priorities.
+      </div>
+
+      <div class="grid-2" style="margin-top:14px;">
+        <div class="card">
+          <label for="maxPrice"><strong>Maximum Price (CNY)</strong>: <span id="maxPriceVal">50</span></label>
+          <input id="maxPrice" type="range" min="0" max="100" value="50" />
+        </div>
+        <div class="card">
+          <label for="minQuality"><strong>Minimum Quality (%)</strong>: <span id="minQualityVal">70</span></label>
+          <input id="minQuality" type="range" min="50" max="100" value="70" />
+        </div>
+      </div>
+
+      <div id="priceQualityChart" class="plot" style="margin-top:14px;"></div>
+    </section>
+
+    <!-- TAB 4 -->
+    <section class="tabpanel" id="tab4">
+      <h2>AI Shopping Assistant</h2>
+
+      <div class="card">
+        <div id="chatHistory" class="chat"></div>
+
+        <div class="chat-input">
+          <input id="chatText" class="input" placeholder="Ask about winter nutrition / safety / best value..." />
+          <button id="chatSend" class="btn secondary">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5 -->
+    <section class="tabpanel" id="tab5">
+      <h2>Auto-Detect Demo</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Behavior Signals</h3>
+          <div class="kv"><span>quality_clicks</span><strong id="b_quality">0</strong></div>
+          <div class="kv"><span>price_clicks</span><strong id="b_price">0</strong></div>
+          <div class="kv"><span>trace_views</span><strong id="b_trace">0</strong></div>
+          <div class="kv"><span>discount_views</span><strong id="b_discount">0</strong></div>
+          <div class="kv"><span>organic_views</span><strong id="b_organic">0</strong></div>
+
+          <button id="resetBehavior" class="btn" style="width:100%;margin-top:12px;background:#111827;">
+            Reset Behavior
+          </button>
+        </div>
+
+        <div class="card">
+          <h3>Detected Preference</h3>
+          <div class="info-box" style="margin-top:10px;">
+            <div><strong>Type:</strong> <span id="detType">Undetermined</span></div>
+            <div><strong>Confidence:</strong> <span id="detConf">0%</span></div>
+          </div>
+
+          <pre class="code" style="margin-top:12px;">Quality Score = quality_clicks×2
++ trace_views×3
++ organic_views×2.5
+
+Value Score   = price_clicks×2
++ discount_views×3</pre>
+
+          <div class="note" id="detMsg" style="margin-top:10px;">
+            Not enough data. Keep browsing!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Fresh Grocery Shopping Platform | Safe, Transparent, Quality Assured</p>
+    </footer>
+  </main>
+</div>
+
+<script src="assets/consumer.js"></script>
+<script>
+  // tabs
+  document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tabpanel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "annual_data": [
+    {
+      "year": 2021,
+      "quarter": "Q1",
+      "net_loss": -67170000,
+      "net_loss_attributable": -67170000
+    },
+    {
+      "year": 2021,
+      "quarter": "Q2",
+      "net_loss": -61850000,
+      "net_loss_attributable": -61850000
+    },
+    {
+      "year": 2021,
+      "quarter": "Q3",
+      "net_loss": -57520000,
+      "net_loss_attributable": -57520000
+    },
+    {
+      "year": 2021,
+      "quarter": "Q4",
+      "net_loss": -52980000,
+      "net_loss_attributable": -52980000
+    },
+    {
+      "year": 2022,
+      "quarter": "Q1",
+      "net_loss": -48670000,
+      "net_loss_attributable": -48670000
+    },
+    {
+      "year": 2022,
+      "quarter": "Q2",
+      "net_loss": -43250000,
+      "net_loss_attributable": -43250000
+    },
+    {
+      "year": 2022,
+      "quarter": "Q3",
+      "net_loss": -37820000,
+      "net_loss_attributable": -37820000
+    },
+    {
+      "year": 2022,
+      "quarter": "Q4",
+      "net_loss": -31150000,
+      "net_loss_attributable": -31150000
+    },
+    {
+      "year": 2023,
+      "quarter": "Q1",
+      "net_loss": -22400000,
+      "net_loss_attributable": -22400000
+    },
+    {
+      "year": 2023,
+      "quarter": "Q2",
+      "net_loss": -12800000,
+      "net_loss_attributable": -12800000
+    },
+    {
+      "year": 2023,
+      "quarter": "Q3",
+      "net_loss": -7200000,
+      "net_loss_attributable": -7200000
+    },
+    {
+      "year": 2023,
+      "quarter": "Q4",
+      "net_loss": -1000000,
+      "net_loss_attributable": -910000
+    },
+    {
+      "year": 2024,
+      "quarter": "Q1",
+      "net_loss": 8500000,
+      "net_loss_attributable": 9100000
+    },
+    {
+      "year": 2024,
+      "quarter": "Q2",
+      "net_loss": 18200000,
+      "net_loss_attributable": 19500000
+    }
+  ],
+  "key_metrics": {
+    "turnaround_year": 2024,
+    "turnaround_quarter": "Q1 2024",
+    "strategic_pivot": "Withdrew from tier 3/4 cities in late 2022, focused on profitable Yangtze River Delta region",
+    "total_loss_2021": -239520000,
+    "total_loss_2022": -160890000,
+    "total_loss_2023": -43310000,
+    "total_profit_2024_h1": 26700000
+  }
+}

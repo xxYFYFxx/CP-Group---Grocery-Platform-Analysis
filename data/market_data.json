@@ -1,0 +1,96 @@
+{
+  "growth_rate_cagr": 0.22,
+  "market_size_2023": 520000000000,
+  "market_size_2024": 580000000000,
+  "market_size_2025_projected": 707600000000,
+  "instant_retail_penetration": {
+    "tier1": 0.45,
+    "new_tier1": 0.38,
+    "tier2": 0.28,
+    "tier3": 0.12
+  },
+  "consumer_behavior_shift": {
+    "from_bulk_purchase": 0.35,
+    "to_frequent_small": 0.65,
+    "immediate_delivery_preference": 0.58
+  },
+  "consumer_segments": {
+    "quality_sensitive": 0.35,
+    "price_sensitive": 0.40,
+    "balanced_pragmatic": 0.25
+  },
+  "age_distribution": {
+    "21_30": 0.42,
+    "31_40": 0.38,
+    "41_50": 0.15,
+    "50_plus": 0.05
+  },
+  "key_pain_points": {
+    "quality_inconsistency": {
+      "severity": 0.85,
+      "description": "Unstable product quality across purchases"
+    },
+    "lack_of_transparency": {
+      "severity": 0.82,
+      "description": "Unclear food origins and production processes"
+    },
+    "high_loss_rate": {
+      "severity": 0.75,
+      "description": "Industry average 20-30% product loss"
+    },
+    "fulfillment_costs": {
+      "severity": 0.80,
+      "description": "Complex delivery chains increase costs"
+    },
+    "food_safety_concerns": {
+      "severity": 0.90,
+      "description": "Persistent worries about food safety"
+    },
+    "delivery_reliability": {
+      "severity": 0.72,
+      "description": "Inconsistent delivery times affect meal planning"
+    },
+    "low_customer_loyalty": {
+      "severity": 0.65,
+      "description": "Frequent platform switching due to promotions"
+    }
+  },
+  "industry_trends": {
+    "ai_adoption": {
+      "current_level": 0.35,
+      "projected_2026": 0.62,
+      "applications": [
+        "Demand forecasting",
+        "Inventory optimization",
+        "Personalized recommendations",
+        "Customer service automation"
+      ]
+    },
+    "supply_chain_digitization": {
+      "current_level": 0.48,
+      "projected_2026": 0.75,
+      "focus_areas": [
+        "Blockchain traceability",
+        "IoT cold chain monitoring",
+        "Automated warehousing",
+        "Real-time logistics tracking"
+      ]
+    },
+    "sustainability": {
+      "importance_rating": 0.68,
+      "consumer_willingness_to_pay_premium": 0.23,
+      "key_concerns": [
+        "Packaging waste reduction",
+        "Carbon footprint",
+        "Organic certification",
+        "Local sourcing"
+      ]
+    }
+  },
+  "competitive_landscape": {
+    "market_concentration": "Moderately concentrated",
+    "top_3_market_share": 0.45,
+    "number_of_active_players": 15,
+    "barriers_to_entry": "High - requires significant capital for infrastructure"
+  }
+}
