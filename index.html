@@ -2,36 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>CP Group – Strategic Dashboard Prototype</title>
+  <title>AI-Driven Market Opportunity Analysis</title>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
+<body>
 
-<body class="center-page">
+<div class="app-layout">
 
-  <div class="landing-card">
-    <h1>CP Group Strategic Decision Dashboard</h1>
+  <!-- ========== SIDEBAR (Streamlit style) ========== -->
+  <aside class="sidebar">
+    <div class="logo">🤖 AI Market Analysis</div>
 
-    <p class="subtitle">
-      Interactive market intelligence and opportunity analysis prototype<br/>
-      for CP Group’s entry into China’s fresh grocery retail market.
-    </p>
+    <div class="section-title">Pages</div>
+    <a href="index.html" class="active">Home</a>
+    <a href="dashboard.html">CP Dashboard</a>
+    <a href="consumer.html">Consumer App</a>
 
-    <ul class="landing-list">
-      <li>Market & competitor analysis</li>
-      <li>Consumer segmentation & JTBD insights</li>
-      <li>Opportunity scoring & strategy simulation</li>
-    </ul>
+    <div class="section-title">Project</div>
+    <a href="#overview">Overview</a>
+    <a href="#entry">Entry Points</a>
 
-    <!-- 关键：老师只需要点这个 -->
-    <a class="btn primary" href="dashboard.html">
-      Launch Dashboard
-    </a>
+    <div class="side-note" style="margin-top:16px;">
+      Static replica of Streamlit prototype<br/>
+      (Stable HTML version)
+    </div>
+  </aside>
 
-    <p class="muted" style="margin-top:16px;">
-      Static HTML prototype (Streamlit logic refactored for stable deployment)
-    </p>
-  </div>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- OVERVIEW -->
+      <section id="overview">
+        <h1>AI-Driven Market Opportunity Analysis</h1>
+
+        <h2>Project Overview</h2>
+        <p>
+          To identify and compare market opportunities for leading online and offline
+          grocery platforms using AI tools.
+        </p>
+        <p>
+          <strong>CP Group (Charoen Pokphand Group)</strong> is one of the world's largest
+          conglomerates, operating over 200 subsidiaries across agriculture, supermarkets,
+          and e-commerce in China.
+        </p>
+      </section>
+
+      <hr class="sep"/>
+
+      <!-- ENTRY -->
+      <section id="entry">
+        <h2>Select Your Entry Point</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>CP Dashboard</h3>
+            <p>Strategic insights and competitor intelligence</p>
+            <ul>
+              <li>Competitor Intelligence</li>
+              <li>Market Analysis</li>
+              <li>Customer Insights</li>
+              <li>Opportunity Engine</li>
+            </ul>
+            <a class="btn" href="dashboard.html">Enter CP Dashboard</a>
+          </div>
+
+          <div class="card">
+            <h3>Consumer Application</h3>
+            <p>User-centered AI shopping experience</p>
+            <ul>
+              <li>Personalized Recommendations</li>
+              <li>Traceability System</li>
+              <li>Price–Quality Tool</li>
+              <li>AI Assistant Demo</li>
+            </ul>
+            <a class="btn secondary" href="consumer.html">Enter Consumer App</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>ENT302TC – XJTLU Entrepreneur College (Taicang)</p>
+      </footer>
+
+    </div>
+  </main>
+
+</div>
 
 </body>
 </html>
